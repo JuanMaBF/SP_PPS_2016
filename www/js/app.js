@@ -22,6 +22,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngMap',
   });
 })
 
+//VALUES
+.value('refUsuarioActualVal', {
+    ref: null
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -62,6 +67,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngMap',
       }
     })
 
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'loginCtrl'
+  })
+
+  .state('registro', {
+      url: '/registro',
+      templateUrl: 'templates/registro.html',
+      controller: 'registroCtrl'
+  })
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/mapa');
+  $urlRouterProvider.otherwise('/login');
 });
